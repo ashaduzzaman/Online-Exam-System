@@ -1,0 +1,122 @@
+﻿@model OnlineExamSystem.Models.StudentEntry
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(document).ready(function(){
+            DisableTabs();
+            function DisableTabs() {
+                $('#BasicInfo').hide();
+                $('#AssignTrainers').hide();
+                $('#CreatExam').hide();
+
+
+            }
+            $('.nav-tabs li a[href="#BasicInfo"]').on('click', function (event) {
+                DisableTabs();
+                var tabid = $(this).attr('href');
+                $('#l1').addClass('active');
+                $('#l1').siblings().removeClass('active');
+                var tabpanel = $('' + tabid).show();
+                $(tabpanel).addClass('tab-pan fade in active');
+            )
+        };
+        $('.nav-tabs li a[href="#AssignTrainers"]').on('click', function (event) {
+            DisableTabs();
+            var tabid = $(this).attr('href');
+            $('#l2').addClass('active');
+            $('#l2').siblings().removeClass('active');
+            var tabpanel = $('' + tabid).show();
+            $(tabpanel).addClass('tab-pan fade in active');
+            )};
+        $('.nav-tabs li a[href="#CreatExam"]').on('click', function (event) {
+            DisableTabs();
+            var tabid = $(this).attr('href');
+            $('#l3').addClass('active');
+            $('#l3').siblings().removeClass('active');
+            var tabpanel = $('' + tabid).show();
+            $(tabpanel).addClass('tab-pan fade in active');
+            )};
+
+        });
+    </script>
+
+</head>
+<body>
+    <div class="jumbotron">
+
+        <h1>Course Name</h1>
+        <br />
+        <div>
+
+            <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+            <script src="~/Scripts/bootstrap.min.js"></script>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li id="l1" class="active"><a href="#BasicInfo" aria-controls="Basic Info" role="tab" data-toggle="tab">Basic Info</a></li>
+                <li id="l2"><a href="#AssignTrainers" aria-controls="AssignTrainers" role="tab" data-toggle="tab">Assign Trainers</a></li>
+                <li id="l3"><a href="#CreatExam" aria-controls="CreatExam" role="tab" data-toggle="tab">Creat Exam</a></li>
+
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="BasicInfo">
+                    <br />
+                    @using (Html.BeginForm("Instruction", "Home", FormMethod.Post))
+                    {
+                        <div class="container">
+                            <div class="row form-horizontal">
+
+                                <div class="form-group">
+                                    <div class="col-md-3">@Html.Label("Organization")</div>
+                                    <div class="col-md-5">
+                                        <select>
+                                            <option>Select</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-3">@Html.Label("Name")</div>
+                                    <div class="col-md-5">@Html.TextBox("ahdgh")</div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-3">@Html.Label("Code")</div>
+                                    <div class="col-md-5">@Html.TextBox("ahdgh")</div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-3">@Html.Label("Course Duration")</div>
+                                    <div class="col-md-5">@Html.TextBox("ahdgh")</div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-3">@Html.Label("Credit")</div>
+                                    <div class="col-md-5">@Html.TextBox("ahdgh")</div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-3"></div>
+                                    <div class="col-md-5"><input type="submit" value="Save" class="btn btn-primary" /></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    }
+                </div>
+                <div role="tabpanel" class="tab-pane" id="AssignTrainers">...</div>
+                <div role="tabpanel" class="tab-pane" id="CreatExam">...</div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+
+</body>
+</html>
